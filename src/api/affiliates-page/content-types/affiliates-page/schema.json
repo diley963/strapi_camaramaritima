@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "affiliates_pages",
+  "info": {
+    "singularName": "affiliates-page",
+    "pluralName": "affiliates-pages",
+    "displayName": "Affiliates Page"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "hero": { "type": "component", "repeatable": false, "component": "sections.hero", "required": true },
+    "benefitsEyebrow": { "type": "string" },
+    "benefitsTitle": { "type": "string", "required": true },
+    "benefits": { "type": "component", "repeatable": true, "component": "affiliates.benefit", "required": true },
+    "directoryEyebrow": { "type": "string" },
+    "directoryTitle": { "type": "string", "required": true },
+    "directoryDescription": { "type": "text" },
+    "directoryCta": { "type": "component", "repeatable": false, "component": "shared.link" },
+    "metrics": { "type": "component", "repeatable": true, "component": "shared.stat" },
+    "subEyebrow": { "type": "string" },
+    "subTitle": { "type": "string", "required": true },
+    "modelEyebrow": { "type": "string" },
+    "modelTitle": { "type": "string", "required": true },
+    "membershipPlans": { "type": "component", "repeatable": true, "component": "affiliates.membership-plan", "required": true },
+    "processEyebrow": { "type": "string" },
+    "processTitle": { "type": "string", "required": true },
+    "processDescription": { "type": "text" },
+    "process": { "type": "component", "repeatable": true, "component": "shared.process-step", "required": true },
+    "cta": { "type": "component", "repeatable": false, "component": "sections.cta" },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "hero": { "type": "component", "repeatable": false, "component": "sections.hero", "required": true },
+    "purposeEyebrow": { "type": "string" },
+    "purposeTitle": { "type": "string", "required": true },
+    "purposeDescription": { "type": "text" },
+    "purposeBlocks": { "type": "component", "repeatable": true, "component": "home.purpose-block", "required": true },
+    "statsEyebrow": { "type": "string" },
+    "statsTitle": { "type": "string", "required": true },
+    "stats": { "type": "component", "repeatable": true, "component": "shared.stat" },
+    "objectivesTitle": { "type": "string", "required": true },
+    "objectives": { "type": "component", "repeatable": true, "component": "shared.process-step" },
+    "featuredNews": { "type": "relation", "relation": "oneToMany", "target": "api::news.new" },
+    "cta": { "type": "component", "repeatable": false, "component": "sections.cta" },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

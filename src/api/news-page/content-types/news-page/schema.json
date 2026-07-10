@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_pages",
+  "info": {
+    "singularName": "news-page",
+    "pluralName": "news-pages",
+    "displayName": "News Page"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "hero": { "type": "component", "repeatable": false, "component": "sections.hero", "required": true },
+    "newsEyebrow": { "type": "string" },
+    "newsTitle": { "type": "string", "required": true },
+    "eventsEyebrow": { "type": "string" },
+    "eventsTitle": { "type": "string", "required": true },
+    "eventsDescription": { "type": "text" },
+    "libraryEyebrow": { "type": "string" },
+    "libraryTitle": { "type": "string", "required": true },
+    "libraryCta": { "type": "component", "repeatable": false, "component": "shared.link" },
+    "newsletterTitle": { "type": "string" },
+    "newsletterDescription": { "type": "text" },
+    "newsletterPlaceholder": { "type": "string" },
+    "newsletterSubmit": { "type": "string" },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

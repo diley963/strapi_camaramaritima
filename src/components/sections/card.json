@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_cards",
+  "info": {
+    "displayName": "card",
+    "icon": "dashboard",
+    "description": "Tarjeta individual para listas de servicios o beneficios"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    }
+  }
+}

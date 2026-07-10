@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "membership_requests",
+  "info": {
+    "singularName": "membership-request",
+    "pluralName": "membership-requests",
+    "displayName": "Solicitud de Afiliacion"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "companyName": { "type": "string", "required": true },
+    "nit": { "type": "string" },
+    "contactName": { "type": "string", "required": true },
+    "email": { "type": "email", "required": true },
+    "phone": { "type": "string", "required": true },
+    "city": { "type": "string" },
+    "chamber": { "type": "relation", "relation": "manyToOne", "target": "api::sub-chamber.sub-chamber", "required": true },
+    "message": { "type": "text" },
+    "status": { "type": "enumeration", "enum": ["Nueva", "Contactada", "En proceso", "Aprobada", "Rechazada", "Archivada"], "default": "Nueva" }
+  }
+}

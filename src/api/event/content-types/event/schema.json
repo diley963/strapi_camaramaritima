@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Evento"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "summary": { "type": "text" },
+    "content": { "type": "richtext" },
+    "startDate": { "type": "datetime", "required": true },
+    "endDate": { "type": "datetime" },
+    "location": { "type": "string" },
+    "cover": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "registrationUrl": { "type": "string" },
+    "featured": { "type": "boolean" },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

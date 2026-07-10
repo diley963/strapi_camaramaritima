@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publications",
+  "info": {
+    "singularName": "publication",
+    "pluralName": "publications",
+    "displayName": "Publicacion"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "summary": { "type": "text" },
+    "date": { "type": "date", "required": true },
+    "category": { "type": "enumeration", "enum": ["Publicación", "Comunicado", "Boletín"], "required": true },
+    "cover": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "file": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["files"] },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

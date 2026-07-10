@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_affiliates_benefits",
+  "info": {
+    "displayName": "benefit",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}

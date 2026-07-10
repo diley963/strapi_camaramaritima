@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_members",
+  "info": {
+    "singularName": "team-member",
+    "pluralName": "team-members",
+    "displayName": "Equipo de Trabajo"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "name", "required": true },
+    "role": { "type": "string", "required": true },
+    "bio": { "type": "text" },
+    "image": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images"] },
+    "linkedinUrl": { "type": "string" },
+    "whatsappUrl": { "type": "string" },
+    "email": { "type": "email" },
+    "phone": { "type": "string" },
+    "order": { "type": "integer" },
+    "active": { "type": "boolean", "default": true }
+  }
+}

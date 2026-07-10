@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_home_purpose_blocks",
+  "info": {
+    "displayName": "purposeBlock",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bulletins",
+  "info": {
+    "singularName": "bulletin",
+    "pluralName": "bulletins",
+    "displayName": "Boletin"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "summary": { "type": "text" },
+    "date": { "type": "date", "required": true },
+    "cover": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "file": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["files"] },
+    "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
+  }
+}

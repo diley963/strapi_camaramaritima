@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_card_grids",
+  "info": {
+    "displayName": "cardGrid",
+    "icon": "apps",
+    "description": "Grupo de tarjetas"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.card"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sections_ctas",
+  "info": {
+    "displayName": "cta",
+    "icon": "cursor",
+    "description": "Llamado a la accion"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "actions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

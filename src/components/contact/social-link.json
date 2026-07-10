@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_contact_social_links",
+  "info": {
+    "displayName": "socialLink",
+    "icon": "share",
+    "description": "Enlace a red social"
+  },
+  "options": {},
+  "attributes": {
+    "network": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "instagram",
+        "linkedin",
+        "x",
+        "youtube",
+        "whatsapp",
+        "other"
+      ],
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

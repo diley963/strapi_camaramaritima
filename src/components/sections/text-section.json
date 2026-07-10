@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_sections_text_sections",
+  "info": {
+    "displayName": "textSection",
+    "icon": "write",
+    "description": "Bloque de contenido editorial"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.image-block"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "image-left",
+        "image-right"
+      ],
+      "default": "text"
+    }
+  }
+}
