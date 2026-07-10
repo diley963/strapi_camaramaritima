@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_shared_page_images",
+  "info": {
+    "displayName": "pageImage",
+    "icon": "picture",
+    "description": "Imagen administrable para secciones de paginas"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "section": {
+      "type": "enumeration",
+      "enum": [
+        "hero",
+        "banner",
+        "content",
+        "gallery",
+        "cta",
+        "background",
+        "thumbnail",
+        "other"
+      ],
+      "default": "content"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "alt": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

@@ -26,6 +26,7 @@
     "processTitle": { "type": "string", "required": true },
     "processDescription": { "type": "text" },
     "process": { "type": "component", "repeatable": true, "component": "shared.process-step", "required": true },
+    "pageImages": { "type": "component", "repeatable": true, "component": "shared.page-image" },
     "cta": { "type": "component", "repeatable": false, "component": "sections.cta" },
     "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
   }

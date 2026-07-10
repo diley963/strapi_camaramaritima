@@ -21,6 +21,7 @@
     "newsletterDescription": { "type": "text" },
     "newsletterPlaceholder": { "type": "string" },
     "newsletterSubmit": { "type": "string" },
+    "pageImages": { "type": "component", "repeatable": true, "component": "shared.page-image" },
     "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
   }
 }
