@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "institutional_pillars",
+  "info": {
+    "singularName": "institutional-pillar",
+    "pluralName": "institutional-pillars",
+    "displayName": "Institutional Pillar"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text", "required": true },
+    "icon": {
+      "type": "enumeration",
+      "enum": ["Building2", "Network", "Anchor", "GraduationCap", "Handshake", "Leaf", "ShipWheel"],
+      "required": true
+    },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "order": { "type": "integer", "required": true },
+    "active": { "type": "boolean", "default": true }
+  }
+}

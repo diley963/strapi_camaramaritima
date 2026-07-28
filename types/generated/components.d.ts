@@ -242,6 +242,35 @@ export interface SharedLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedPageImage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_page_images';
+  info: {
+    description: 'Imagen administrable para secciones de paginas';
+    displayName: 'pageImage';
+    icon: 'picture';
+  };
+  attributes: {
+    alt: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer;
+    section: Schema.Attribute.Enumeration<
+      [
+        'hero',
+        'banner',
+        'content',
+        'gallery',
+        'cta',
+        'background',
+        'thumbnail',
+        'other',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'content'>;
+  };
+}
+
 export interface SharedProcessStep extends Struct.ComponentSchema {
   collectionName: 'components_shared_process_steps';
   info: {
@@ -328,6 +357,7 @@ declare module '@strapi/strapi' {
       'sections.text-section': SectionsTextSection;
       'shared.image-block': SharedImageBlock;
       'shared.link': SharedLink;
+      'shared.page-image': SharedPageImage;
       'shared.process-step': SharedProcessStep;
       'shared.seo': SharedSeo;
       'shared.stat': SharedStat;

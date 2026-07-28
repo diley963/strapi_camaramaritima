@@ -473,6 +473,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     missionDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     missionTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    pageImages: Schema.Attribute.Component<'shared.page-image', true>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     timeline: Schema.Attribute.Component<'shared.timeline-item', true>;
@@ -570,6 +571,7 @@ export interface ApiAffiliatesPageAffiliatesPage
     metrics: Schema.Attribute.Component<'shared.stat', true>;
     modelEyebrow: Schema.Attribute.String;
     modelTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    pageImages: Schema.Attribute.Component<'shared.page-image', true>;
     process: Schema.Attribute.Component<'shared.process-step', true> &
       Schema.Attribute.Required;
     processDescription: Schema.Attribute.Text;
@@ -726,6 +728,7 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     mapUrl: Schema.Attribute.Text;
+    pageImages: Schema.Attribute.Component<'shared.page-image', true>;
     phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
@@ -836,6 +839,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     objectives: Schema.Attribute.Component<'shared.process-step', true>;
     objectivesTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    pageImages: Schema.Attribute.Component<'shared.page-image', true>;
     publishedAt: Schema.Attribute.DateTime;
     purposeBlocks: Schema.Attribute.Component<'home.purpose-block', true> &
       Schema.Attribute.Required;
@@ -887,6 +891,51 @@ export interface ApiInstitutionalAllyInstitutionalAlly
   };
 }
 
+export interface ApiInstitutionalPillarInstitutionalPillar
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'institutional_pillars';
+  info: {
+    displayName: 'Institutional Pillar';
+    pluralName: 'institutional-pillars';
+    singularName: 'institutional-pillar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    icon: Schema.Attribute.Enumeration<
+      [
+        'Building2',
+        'Network',
+        'Anchor',
+        'GraduationCap',
+        'Handshake',
+        'Leaf',
+        'ShipWheel',
+      ]
+    > &
+      Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institutional-pillar.institutional-pillar'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMembershipPageMembershipPage
   extends Struct.SingleTypeSchema {
   collectionName: 'membership_pages';
@@ -915,6 +964,7 @@ export interface ApiMembershipPageMembershipPage
       'api::membership-page.membership-page'
     > &
       Schema.Attribute.Private;
+    pageImages: Schema.Attribute.Component<'shared.page-image', true>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1008,6 +1058,7 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
     newsletterSubmit: Schema.Attribute.String;
     newsletterTitle: Schema.Attribute.String;
     newsTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    pageImages: Schema.Attribute.Component<'shared.page-image', true>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1692,6 +1743,7 @@ declare module '@strapi/strapi' {
       'api::global-setting.global-setting': ApiGlobalSettingGlobalSetting;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::institutional-ally.institutional-ally': ApiInstitutionalAllyInstitutionalAlly;
+      'api::institutional-pillar.institutional-pillar': ApiInstitutionalPillarInstitutionalPillar;
       'api::membership-page.membership-page': ApiMembershipPageMembershipPage;
       'api::membership-request.membership-request': ApiMembershipRequestMembershipRequest;
       'api::news-page.news-page': ApiNewsPageNewsPage;
