@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_imagen_pages",
+  "info": {
+    "displayName": "Imagen Page",
+    "icon": "picture",
+    "description": "Imagen principal administrable por pagina"
+  },
+  "options": {},
+  "attributes": {
+    "pageName": {
+      "type": "enumeration",
+      "enum": [
+        "inicio",
+        "quienes-somos",
+        "afiliados",
+        "afiliacion",
+        "actualidad",
+        "contacto"
+      ],
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

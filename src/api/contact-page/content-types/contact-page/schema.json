@@ -18,6 +18,7 @@
     "mapUrl": { "type": "text" },
     "linkedinUrl": { "type": "string" },
     "instagramUrl": { "type": "string" },
+    "imagenPage": { "type": "component", "repeatable": false, "component": "shared.imagen-page" },
     "pageImages": { "type": "component", "repeatable": true, "component": "shared.page-image" },
     "seo": { "type": "component", "repeatable": false, "component": "shared.seo" }
   }
