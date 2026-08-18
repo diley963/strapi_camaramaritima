@@ -465,6 +465,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     historyDescription: Schema.Attribute.RichText;
     historyEyebrow: Schema.Attribute.String;
     historyTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    imagenPage: Schema.Attribute.Component<'shared.imagen-page', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -557,6 +558,7 @@ export interface ApiAffiliatesPageAffiliatesPage
     directoryTitle: Schema.Attribute.String & Schema.Attribute.Required;
     hero: Schema.Attribute.Component<'sections.hero', false> &
       Schema.Attribute.Required;
+    imagenPage: Schema.Attribute.Component<'shared.imagen-page', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -719,6 +721,7 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
     formTitle: Schema.Attribute.String & Schema.Attribute.Required;
     hero: Schema.Attribute.Component<'sections.hero', false> &
       Schema.Attribute.Required;
+    imagenPage: Schema.Attribute.Component<'shared.imagen-page', false>;
     instagramUrl: Schema.Attribute.String;
     linkedinUrl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -831,6 +834,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     featuredNews: Schema.Attribute.Relation<'oneToMany', 'api::news.new'>;
     hero: Schema.Attribute.Component<'sections.hero', false> &
       Schema.Attribute.Required;
+    imagenPage: Schema.Attribute.Component<'shared.imagen-page', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -956,6 +960,7 @@ export interface ApiMembershipPageMembershipPage
     formTitle: Schema.Attribute.String & Schema.Attribute.Required;
     hero: Schema.Attribute.Component<'sections.hero', false> &
       Schema.Attribute.Required;
+    imagenPage: Schema.Attribute.Component<'shared.imagen-page', false>;
     introDescription: Schema.Attribute.Text;
     introTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1043,6 +1048,7 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
     eventsTitle: Schema.Attribute.String & Schema.Attribute.Required;
     hero: Schema.Attribute.Component<'sections.hero', false> &
       Schema.Attribute.Required;
+    imagenPage: Schema.Attribute.Component<'shared.imagen-page', false>;
     libraryCta: Schema.Attribute.Component<'shared.link', false>;
     libraryEyebrow: Schema.Attribute.String;
     libraryTitle: Schema.Attribute.String & Schema.Attribute.Required;
@@ -1093,6 +1099,50 @@ export interface ApiNewsNew extends Struct.CollectionTypeSchema {
     seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     summary: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPageImagePageImage extends Struct.CollectionTypeSchema {
+  collectionName: 'page_images';
+  info: {
+    description: 'Imagen principal administrable por pagina';
+    displayName: 'Page Image';
+    pluralName: 'page-images';
+    singularName: 'page-image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    alt: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-image.page-image'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    page: Schema.Attribute.Enumeration<
+      [
+        'inicio',
+        'quienes-somos',
+        'afiliados',
+        'afiliacion',
+        'actualidad',
+        'contacto',
+      ]
+    > &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1748,6 +1798,7 @@ declare module '@strapi/strapi' {
       'api::membership-request.membership-request': ApiMembershipRequestMembershipRequest;
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::news.new': ApiNewsNew;
+      'api::page-image.page-image': ApiPageImagePageImage;
       'api::publication.publication': ApiPublicationPublication;
       'api::sub-chamber.sub-chamber': ApiSubChamberSubChamber;
       'api::team-member.team-member': ApiTeamMemberTeamMember;

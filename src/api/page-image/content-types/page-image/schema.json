@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_images",
+  "info": {
+    "singularName": "page-image",
+    "pluralName": "page-images",
+    "displayName": "Page Image",
+    "description": "Imagen principal administrable por pagina"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "page": {
+      "type": "enumeration",
+      "enum": [
+        "inicio",
+        "quienes-somos",
+        "afiliados",
+        "afiliacion",
+        "actualidad",
+        "contacto"
+      ],
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
